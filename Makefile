@@ -1,10 +1,12 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -O2
+CFLAGS = -Wall -Wextra -std=c99
+TARGET = ars_engine
+SRC = src/engine.c
 
-all: engine
+all: $(TARGET)
 
-engine: src/engine.c
-	$(CC) $(CFLAGS) src/engine.c -o ars_engine
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
 clean:
-	rm -f ars_engine
+	rm -f $(TARGET)
